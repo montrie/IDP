@@ -2,7 +2,11 @@
 /shelf/
 /workspace.xml
 
+# Additional files
+*.p12
+
 # Directories
 .idea
 __pycache__
 cache
+project_files
