@@ -10,16 +10,16 @@ system-specific parameters, change to reflect
 ROOT_DIR: root directory of the code base
 prefix_path: path to root directory of QGIS installation
 tms: link to a basemap from OpenStreetMaps
-absolute_path_to_csv_file: absolute path to local csv file containing detector data
-options: options for loading the detector data
+absolute_path_to_csv_file: absolute path to local csv file containing detector static_data
+options: options for loading the detector static_data
 options2: TBD
-csv_uri: final URI of the detector data csv file
+csv_uri: final URI of the detector static_data csv file
 project_location: path of the created QGIS project file 
 """
 ROOT_DIR = os.sep.join(os.path.dirname(os.path.abspath(__file__)).split(os.sep)[:-1])
 prefix_path = "D:\Program Files\QGIS 3.32.3"
 tms = 'crs=EPSG:3857&type=xyz&url=https://tile.openstreetmap.org/{z}/{x}/{y}.png&zmax=19&zmin=0'
-absolute_path_to_csv_file = os.path.join(ROOT_DIR, "data")
+absolute_path_to_csv_file = os.path.join(ROOT_DIR, "static_data")
 options = '?delimiter=,&xField=lon&yField=lat&crs=epsg:4326'
 options2 = '?type=csv&amp;delimiter=,&amp;xField=lon&amp;yField=lat&amp;crs=EPSG:4326&amp;'
 project_location = os.path.join(ROOT_DIR, "project_files")
@@ -41,10 +41,10 @@ def set_project_crs():
 
 
 def map_and_point(data_file_name: str = "default.csv") -> QgsProject:
-    """Load a base map from OSM and the detector data from the data stored in ``data_file_name``,
+    """Load a base map from OSM and the detector static_data from the static_data stored in ``data_file_name``,
     add them a QgsProject instance, write the .qgs file to disk and return the QgsProject object
 
-    :param data_file_name: File name of the detector data
+    :param data_file_name: File name of the detector static_data
     :return: Object of the QgsProject
     """
     QgsApplication.setPrefixPath(prefix_path, True)
